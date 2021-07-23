@@ -1,0 +1,15 @@
+{
+  "name": "git-portfolio",
+  "version": "0.0.1",
+  "description": "Host your own portfolio from GitHub.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["eleventy","portfolio"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}
