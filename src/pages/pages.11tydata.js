@@ -1,7 +1,8 @@
 function determinePermalink(data){
   const {permalink,page} = data;
   if (permalink) return permalink;
-  return `/${page.fileSlug.substr(5)}/`;
+  if (page.filePathStem.substr(-5) == "index") return `/${page.filePathStem.substr(6)}.html`
+  return `/${page.filePathStem.substr(6)}/`;
 }
 
 
