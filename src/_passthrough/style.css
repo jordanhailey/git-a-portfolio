@@ -1,11 +1,21 @@
 :root
 {
   --body-level-gutter: 1rem;
+  --content-gutter: 1rem;
   --content-width: min(140ch, calc(100vw - (var(--body-level-gutter) * 2)));
   --body-level-inline-padding: calc((100vw - var(--content-width)) / 2);
   --content-aside-width: calc(var(--content-width) / 3);
   --header-height: 3rem;
   --footer-height: 6rem;
+  --header-background-color: hsla(220, 80%, 60%,0.8);
+  --footer-background-color: hsla(220, 80%, 30%,0.8);
+  --aside-background-color: hsla(220, 20%, 90%,0.6);
+  --font-color-primary: hsla(220, 5%, 15%,1);
+  --font-color-alt: hsla(220, 5%, 97.5%,1);
+}
+html
+{
+color: var(--font-color-primary);
 }
 
 html *,
@@ -48,7 +58,8 @@ body
 }
 
 .page-wrapper > *,
-[class*='wrapper']
+[class*='wrapper'],
+[class*='has-aside']
 {
   position: relative;
 }
@@ -67,15 +78,30 @@ body
 {
   grid-area: header;
 }
+.page-wrapper > header > .content-wrapper {
+  background-color: var(--header-background-color);
+  color: var(--font-color-alt);
+}
+
 .page-wrapper > main
 {
   grid-area: main;
 }
+.page-wrapper > main > .content-wrapper {
+  padding-top: calc(2 * var(--body-level-gutter));
+  padding-bottom: calc(2 * var(--body-level-gutter));
+}
+
+
 .page-wrapper > footer
 {
   grid-area: footer;
 }
-
+.page-wrapper > footer > .content-wrapper
+{
+  background-color: var(--footer-background-color);
+  color: var(--font-color-alt);
+}
 
 .page-wrapper > * > .content-wrapper
 {
@@ -112,4 +138,48 @@ footer > .content-wrapper
   position: absolute;
   bottom: 0;
   height: var(--footer-height);
+}
+
+.content-wrapper > *
+{
+  padding: 0 var(--content-gutter);
+}
+
+.content-wrapper * + :not(hr):not(br) {
+  padding-top: var(--content-gutter);
+}
+
+hr {
+  margin: calc(2 * var(--content-gutter)) 0;
+}
+
+aside {
+  padding: var(--content-gutter);
+  background-color: var(--aside-background-color);
+  width: 80%;
+  margin: var(--content-gutter) auto;
+}
+
+@media screen and (min-width:800px)
+{
+  [class*='has-aside']
+  {
+    display: grid;
+    grid-template-columns: [main] 4fr [aside] 2fr;
+    grid-template-rows: auto;
+    column-gap: var(--content-gutter);
+  }
+
+  [class*='has-aside'] > aside
+  {
+    width: unset;
+    margin: unset;
+    grid-area: aside;
+    grid-row-start: 1;
+    grid-row-end: end;
+  }
+  .has-aside-left
+  {
+    grid-template-columns: [aside] 2fr [main] 4fr;
+  }
 }
