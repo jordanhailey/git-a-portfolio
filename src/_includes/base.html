@@ -6,22 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title if title else site.title }}</title>
   <meta name="description" content="{{ description if description else site.description }}">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  {% block header %}
-  <header>
-    TODO: HEADER
-  </header>
-  {% endblock %}
-  {% block main %}
-  <main>
-    {{content | safe}}
-  </main>
-  {% endblock %}
-  {% block footer %}
-  <footer>
-    TODO: FOOTER
-  </footer>
-  {% endblock %}
+<body class="flex flex-dir-col flex-just-str">
+  <div class="page-wrapper grid">
+    {% block header %}
+    <header>
+      <div class="content-wrapper">
+        TODO: HEADER
+      </div>
+    </header>
+    {% endblock %}
+    {% block main %}
+    <main>
+      <div class="content-wrapper">
+        {{content | safe}}
+      </div>
+    </main>
+    {% endblock %}
+    {% block footer %}
+    <footer>
+      <div class="content-wrapper">
+        TODO: FOOTER
+      </div>
+    </footer>
+    {% endblock %}
+  </div>
 </body>
 </html>

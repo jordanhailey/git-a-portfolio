@@ -1,4 +1,5 @@
-module.exports = ( cfg ) => {
+module.exports = ( eleventyConfig ) => {
+  eleventyConfig.addPassthroughCopy({'src/_passthrough':'/'})
   return {
     htmlTemplateEngine:"njk",
     markdownTemplateEngine:"njk",
