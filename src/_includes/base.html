@@ -7,6 +7,20 @@
   <title>{{title if title else "Git Portfolio"}}</title>
 </head>
 <body>
-  {{content | safe}}
+  {% block header %}
+  <header>
+    TODO: HEADER
+  </header>
+  {% endblock %}
+  {% block main %}
+  <main>
+    {{content | safe}}
+  </main>
+  {% endblock %}
+  {% block footer %}
+  <footer>
+    TODO: FOOTER
+  </footer>
+  {% endblock %}
 </body>
 </html>
