@@ -11,11 +11,7 @@
 <body class="flex flex-dir-col flex-just-str">
   <div class="page-wrapper grid">
     {% block header %}
-    <header>
-      <div class="content-wrapper">
-        <span>TODO: HEADER</span>
-      </div>
-    </header>
+    {% include 'partials/header.html' %}
     {% endblock %}
     {% block main %}
     <main>

@@ -1,0 +1,12 @@
+<header>
+  <div class="content-wrapper flex">
+    <div>{{site.title}}</div>
+    <nav>
+      <ul class="flex">
+        {%for i in collections.all%}
+        <li>{{i.data.permalink}}</li>
+        {%endfor%}
+      </ul>
+    </nav>
+  </div>
+</header>

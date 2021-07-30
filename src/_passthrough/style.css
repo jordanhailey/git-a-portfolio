@@ -145,6 +145,12 @@ footer > .content-wrapper
   padding: 0 var(--content-gutter);
 }
 
+.content-wrapper > ul,
+.content-wrapper > ol
+{
+  padding-left: calc(2 * var(--content-gutter));
+}
+
 .content-wrapper * + :not(hr):not(br) {
   padding-top: var(--content-gutter);
 }
@@ -160,26 +166,44 @@ aside {
   margin: var(--content-gutter) auto;
 }
 
+@media screen and (max-width:799px)
+{
+  .has-aside-left {
+    display: flex;
+    flex-direction: column;
+  }
+  .has-aside-left > aside {
+    order: -1; /* better solved with semantic HTML, this will throw off keyboard-only users */
+  }
+}
 @media screen and (min-width:800px)
 {
   [class*='has-aside']
   {
     display: grid;
     grid-template-columns: [main] 4fr [aside] 2fr;
-    grid-template-rows: auto;
+    grid-template-rows: [content-start] repeat(auto-fit, minmax(1rem, 1fr)) [content-end];
     column-gap: var(--content-gutter);
+  }
+
+  [class*='has-aside'] > * {
+    grid-column: main;
   }
 
   [class*='has-aside'] > aside
   {
     width: unset;
     margin: unset;
-    grid-area: aside;
+    grid-column: aside;
     grid-row-start: 1;
-    grid-row-end: end;
+    grid-row-end: span end;
   }
   .has-aside-left
   {
     grid-template-columns: [aside] 2fr [main] 4fr;
+  }
+
+  .content-wrapper > .has-aside-left > aside + * {
+    padding-top: unset;
   }
 }

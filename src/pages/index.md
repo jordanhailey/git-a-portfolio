@@ -2,47 +2,21 @@
 title: Jordan Hailey's Portfolio
 description: A portfolio homepage!
 ---
+# Hey there, I'm Jordan! 👋🏽
 
-# Hello world!
+I'm an aspiring Front End / Full Stack Developer who wants to work on impactful open source projects, and perhaps you're a maintainer of such a project who could use some help? Let's help eachother and work together.
 
-<article>
-  <h2>Main content with aside right</h2>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat error recusandae harum beatae reprehenderit totam sed velit unde, perspiciatis perferendis magnam, laborum dolorem quis iste! Recusandae nihil similique doloribus mollitia.
-  </p>
-  <div class="has-aside">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat error recusandae harum beatae reprehenderit totam sed velit unde, perspiciatis perferendis magnam, laborum dolorem quis iste! Recusandae nihil similique doloribus mollitia.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat error recusandae harum beatae reprehenderit totam sed velit unde, perspiciatis perferendis magnam, laborum dolorem quis iste! Recusandae nihil similique doloribus mollitia.
-    </p>
-    <aside>
-      <p>
-        Aside Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat error recusandae harum beatae reprehenderit totam sed velit unde, perspiciatis perferendis magnam, laborum dolorem quis iste! Recusandae nihil similique doloribus mollitia.
-      </p>
-    </aside>
-  </div>
-</article>
+## Technologies I like to work with
+- JavaScript (including TypeScript)
+- HTML
+- CSS
+- Frameworks like Svelte, 11ty, Express, React, Next, and Vue
+- Node and Deno backends
 
-* * *
+## We can help each other
 
-<article>
-  <h2>Main content with aside left</h2>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat error recusandae harum beatae reprehenderit totam sed velit unde, perspiciatis perferendis magnam, laborum dolorem quis iste! Recusandae nihil similique doloribus mollitia.
-  </p>
-  <div class="has-aside-left">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat error recusandae harum beatae reprehenderit totam sed velit unde, perspiciatis perferendis magnam, laborum dolorem quis iste! Recusandae nihil similique doloribus mollitia.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat error recusandae harum beatae reprehenderit totam sed velit unde, perspiciatis perferendis magnam, laborum dolorem quis iste! Recusandae nihil similique doloribus mollitia.
-    </p>
-    <aside>
-      <p>
-        Aside Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat error recusandae harum beatae reprehenderit totam sed velit unde, perspiciatis perferendis magnam, laborum dolorem quis iste! Recusandae nihil similique doloribus mollitia.
-      </p>
-    </aside>
-  </div>
-</article>
+Send me issues in your OSS project(s) to dig into. I love learning, and contributing, and I especially enjoy good technical documentation - so I'll always over-explain my commits/PRs for any features I create/modify.
+
+If this sounds like a good deal, ping me on [Twitter](https://twitter.com/Halfro_American). If you think you'd like to offer me a job (you're awesome) you can do your due dilligence on [LinkedIn](https://www.linkedin.com/in/jordanhailey/) and send me a message there, or through a DM on Twitter.
+
+I'm looking forward to working with you and giving back to the OSS community!
