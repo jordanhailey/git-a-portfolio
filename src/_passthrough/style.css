@@ -5,7 +5,7 @@
   --content-width: min(140ch, calc(100vw - (var(--body-level-gutter) * 2)));
   --body-level-inline-padding: calc((100vw - var(--content-width)) / 2);
   --content-aside-width: calc(var(--content-width) / 3);
-  --header-height: 3rem;
+  --header-height: 5rem;
   --footer-height: 6rem;
   --header-background-color: hsla(220, 80%, 60%,0.8);
   --footer-background-color: hsla(220, 80%, 30%,0.8);
@@ -25,6 +25,11 @@ html *::after
   box-sizing: border-box;
   margin: 0;
 }
+.page-wrapper .content-wrapper .bb-reset
+{
+  margin: 0;
+  padding: 0;
+}
 
 body
 {
@@ -36,13 +41,32 @@ body
 {
   display: flex;
 }
+
 .flex-dir-col
 {
   flex-direction: column;
 }
+
 .flex-just-str
 {
   justify-content: stretch;
+}
+
+.flex-end
+{
+  justify-content: flex-end;
+}
+
+.flex.items-cntr,
+.flex.all-cntr
+{
+  align-items: center;
+}
+
+.flex.content-cntr,
+.flex.all-cntr
+{
+  justify-content: center;
 }
 
 /* grid utility classes */
@@ -74,29 +98,67 @@ body
     'main'
     'footer';
 }
+
 .page-wrapper > header
 {
   grid-area: header;
 }
-.page-wrapper > header > .content-wrapper {
+
+.page-wrapper > header > .content-wrapper
+{
   background-color: var(--header-background-color);
   color: var(--font-color-alt);
+}
+
+header  nav,
+header  nav > ul
+{
+  flex: 1 auto;
+}
+
+header .content-wrapper nav > ul,
+header .content-wrapper nav > ul > li
+{
+  text-transform: uppercase;
+  list-style: none;
+  padding: 0;
+  margin-left: calc(2 * var(--content-gutter));
+}
+
+header li a
+{
+  padding: var(--content-gutter);
+}
+
+header a
+{
+  text-decoration: none;
+}
+
+.content-wrapper .header-logo {
+  padding: 0;
+}
+
+.header-logo > * {
+  padding: var(--content-gutter);
 }
 
 .page-wrapper > main
 {
   grid-area: main;
 }
-.page-wrapper > main > .content-wrapper {
+
+.page-wrapper > main > .content-wrapper
+{
   padding-top: calc(2 * var(--body-level-gutter));
   padding-bottom: calc(2 * var(--body-level-gutter));
 }
-
 
 .page-wrapper > footer
 {
   grid-area: footer;
 }
+
 .page-wrapper > footer > .content-wrapper
 {
   background-color: var(--footer-background-color);
@@ -117,6 +179,8 @@ body
 header > .content-wrapper,
 footer > .content-wrapper
 {
+  padding-top: var(--body-level-gutter);
+  padding-bottom: var(--body-level-gutter);
   backdrop-filter: blur(16px);
   left: 0;
   right: 0;
@@ -134,7 +198,6 @@ header > .content-wrapper
 
 footer > .content-wrapper
 {
-  padding-bottom: var(--body-level-gutter);
   position: absolute;
   bottom: 0;
   height: var(--footer-height);
@@ -176,6 +239,7 @@ aside {
     order: -1; /* better solved with semantic HTML, this will throw off keyboard-only users */
   }
 }
+
 @media screen and (min-width:800px)
 {
   [class*='has-aside']
