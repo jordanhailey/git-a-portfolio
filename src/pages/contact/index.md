@@ -1,6 +1,6 @@
 # Let's work together
 
-<form onsubmit="(e)=>handleSubmit(e)" id="contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}" class="form flex flex-dir-col" name="contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}">
+<form id="contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}" class="form flex flex-dir-col" name="contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}">
   <label class="form__row input__label">
     <div class="input__label__text">Name (required)</div>
     <input class="input" type="text" name="name" placeholder="Your Name (e.g. Bo Jackson)" required />
@@ -26,48 +26,4 @@
     <input class="input btn__submit" type="submit"/>
   </div>
 </form>
-<script>
-  function attachSubmissionHandler(form){
-    // if (sessionStorage.getItem('contact-form-submitted') == "true") return section.style.display = "none";
-    let randNum;
-    form.addEventListener("submit",(e) => {
-      e.preventDefault()
-      let formData = new FormData(form);
-      const captcha = form.querySelector("input[name='quickcaptcha']");
-      if (!/555-555-5555/.test(formData.get("tel")) || randNum) {
-        if (randNum == undefined) {
-          form.classList.add("rejected");
-          randNum = Math.floor(1234 * Math.random());
-          captcha.required = true;
-          captcha.min = randNum;
-          captcha.max = randNum;
-          captcha.parentNode.style = "";
-          form.querySelector("#quick-captcha").innerText = randNum;
-          captcha.placeholder = `Please enter the number: ${randNum}`;
-          return;
-        } else if (Number(formData.get("quickcaptcha")) !== randNum) {return}
-      }
-      formData.delete("tel");
-      fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      })
-        .then(() => {
-          console.log('Form successfully submitted',{entries:Array.from(formData.entries()).map(v=>v)});
-          sessionStorage.setItem('contact-form-submitted',Date.now())
-          form.style=`--mBottom:${-1 * form.offsetHeight}px;transform-origin:top;animation:fadeOutWrapper 1s ease-in-out forwards`;
-          document.querySelector("#form-submitted").style = "";
-          setTimeout(()=>{
-            console.log(window.location)
-            window.location = window.location.href+"success"
-          },10000)
-        })
-        .catch((error) =>{
-          alert(error);
-          window.location = window.location.href+"error";
-        });
-    })
-  }
-  attachSubmissionHandler(document.querySelector("#contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}"));
-</script>
+<script src="/contact-form.js"></script>
