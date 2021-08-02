@@ -39,4 +39,26 @@ function attachSubmissionHandler(form){
       });
   })
 }
-attachSubmissionHandler(document.querySelector("form"));
+if (/\/contact\/{0,1}$/.test(window.location.href)) attachSubmissionHandler(document.querySelector("form"));
+
+
+const successPage = () => {
+  const formData = new URLSearchParams(window.location.search.substr(1));
+  const [name,email,message] = [formData.get("name"),formData.get("email"),formData.get("message")]
+  document.querySelector("#name").innerText = name;
+  document.querySelector("#email").innerText = email;
+  document.querySelector("#message").innerText = message;
+  if (name && email) document.querySelector("#date").innerText = new Date();
+
+  let countdown = Number(document.querySelector("#countdown").innerText);
+  history.replaceState(null,"",window.location.origin+"/contact/");
+  let interval = setInterval(()=>{
+    countdown--;
+    document.querySelector("#countdown").innerText = countdown;
+    if (countdown <= 0) {
+      clearInterval(interval);
+      window.location = window.location.origin;
+    }
+  },1000)
+}
+if (/\/contact\/success/.test(window.location.href)) successPage();

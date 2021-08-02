@@ -24,13 +24,13 @@ I'm seeking opportunities, and if your team could use help with any of following
 <div id="contact-me-submitted" style="display:none">
   <p>
     Thanks for reaching out to me via <a href="/contact">my contact form</a>.
-  <em>If you've been waiting for a response for more than two days</em>, please feel free to reach out to me on
+  <em>If you require an urgent response</em>, please feel free to reach out to me on
   <a href="https://www.linkedin.com/in/jordanhailey/" target="_blank" rel="noopenner noreferrer">LinkedIn</a> or <a href="https://twitter.com/Halfro_American" target="_blank" rel="noopenner noreferrer">Twitter</a>.
   </p>
 </div>
 <script>
-if (localStorage.getItem("contact-form-submitted")) {
-  let daysSince = Math.floor((Date.now() - Number(localStorage.getItem("contact-form-submitted")))/8.64e7);
+if (sessionStorage.getItem("contact-form-submitted")) { // TODO: change to localStorage
+  let daysSince = Math.floor((Date.now() - Number(sessionStorage.getItem("contact-form-submitted")))/8.64e7);
   if (daysSince < 0 || daysSince > 3) localStorage.removeItem("contact-form-submitted")
   else {
     document.querySelector("#contact-me").style = "display:none;";
