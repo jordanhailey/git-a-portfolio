@@ -8,6 +8,8 @@
   --header-height: 5rem;
   --footer-height: 6rem;
   --header-background-color: hsla(220, 80%, 60%,0.8);
+  --alt-main-background-color: hsla(100, 80%, 30%,0.8);
+  --alt-main-background-success-color: hsla(100, 80%, 90%,0.8);
   --footer-background-color: hsla(220, 80%, 30%,0.8);
   --aside-background-color: hsla(220, 20%, 90%,0.6);
   --font-color-primary: hsla(220, 5%, 15%,1);
@@ -89,12 +91,18 @@ sup,
   font-size: var(--font-min);
 }
 
+*,
+*::before,
+*::after
+{
+  margin: 0;
+}
+
 html *,
 html *::before,
 html *::after
 {
   box-sizing: border-box;
-  margin: 0;
 }
 
 .page-wrapper .content-wrapper .bb-reset
@@ -139,6 +147,10 @@ body
 .flex.all-cntr
 {
   justify-content: center;
+}
+
+.flex.fifty-fifty > * {
+  flex: 1 0;
 }
 
 /* grid utility classes */
@@ -280,13 +292,20 @@ footer > .content-wrapper
   padding: 0 var(--content-gutter);
 }
 
-.content-wrapper > ul,
-.content-wrapper > ol
+.content-wrapper ul,
+.content-wrapper ol
 {
   padding-left: calc(2 * var(--content-gutter));
 }
 
-.content-wrapper * + :not(hr):not(br) {
+.content-wrapper blockquote
+{
+  width: fit-content;
+  margin-left: calc(2 * var(--content-gutter));
+  margin-right: calc(2 * var(--content-gutter));
+}
+
+main * + :not(hr):not(br) {
   padding-top: var(--content-gutter);
 }
 
@@ -294,9 +313,14 @@ hr {
   margin: calc(2 * var(--content-gutter)) 0;
 }
 
+blockquote,
+aside
+{
+  background-color: var(--aside-background-color);
+}
+
 aside {
   padding: var(--content-gutter);
-  background-color: var(--aside-background-color);
   width: 80%;
   margin: var(--content-gutter) auto;
 }
@@ -341,5 +365,64 @@ aside {
 
   .content-wrapper > .has-aside-left > aside + * {
     padding-top: unset;
+  }
+}
+
+.form
+{}
+
+.form * {
+  padding: 0;
+  margin: 0;
+}
+
+.form__row + .form__row
+{
+padding-top: var(--content-gutter);
+}
+.input__label
+{
+  display: flex;
+  flex-direction: column;
+}
+.input__label__text
+{}
+.input
+{
+  padding: 0.75rem 0.50rem;
+  border-radius: 0.5rem;
+}
+textarea.input
+{
+  min-height: calc(var(--font-max) * 3);
+}
+.form__submit
+{
+  display: flex;
+}
+
+.btn__submit
+{
+  flex: 0 0 50%;
+  margin-top: 2rem;
+}
+.form__hp {
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  opacity: 0;
+}
+
+
+@keyframes fadeOutWrapper {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
   }
 }
