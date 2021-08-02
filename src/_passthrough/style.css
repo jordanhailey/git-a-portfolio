@@ -300,7 +300,6 @@ footer > .content-wrapper
 
 .content-wrapper blockquote
 {
-  width: fit-content;
   margin-left: calc(2 * var(--content-gutter));
   margin-right: calc(2 * var(--content-gutter));
 }
@@ -425,4 +424,14 @@ textarea.input
   to {
     opacity: 0;
   }
+}
+
+pre
+{
+  white-space: pre-line;
+}
+
+
+.scroll-x {
+  overflow-x: scroll;
 }
