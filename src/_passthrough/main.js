@@ -1,3 +1,15 @@
+const homepage = () => {
+  console.log("HOMEPAGE");
+  if (sessionStorage.getItem("contact-form-submitted")) { // TODO: change to localStorage
+    let daysSince = Math.floor((Date.now() - Number(sessionStorage.getItem("contact-form-submitted")))/8.64e7);
+    if (daysSince < 0 || daysSince > 3) localStorage.removeItem("contact-form-submitted")
+    else {
+      document.querySelector("#contact-me").style = "display:none;";
+      document.querySelector("#contact-me-submitted").style = "";
+    }
+  }
+}
+
 function attachSubmissionHandler(form){
   let randNum;
   form.addEventListener("submit",(e) => {
@@ -29,21 +41,20 @@ function attachSubmissionHandler(form){
         sessionStorage.setItem('contact-form-submitted',Date.now()); // TODO migrate to localStorage when form is tested
         form.style=`--mBottom:${-1 * form.offsetHeight}px;transform-origin:top;animation:fadeOutWrapper 1s ease-in-out forwards`;
         setTimeout(()=>{
-          console.log(window.location)
-          window.location = window.location.href+"success?"+new URLSearchParams(formData).toString()
+          console.log(location)
+          location = location.href+"success?"+new URLSearchParams(formData).toString()
         },1000)
       })
       .catch((error) =>{
         alert(error);
-        window.location = window.location.href+"error";
+        location = location.href+"error";
       });
   })
 }
-if (/\/contact\/{0,1}$/.test(window.location.href)) attachSubmissionHandler(document.querySelector("form"));
 
 
 const successPage = () => {
-  const formData = new URLSearchParams(window.location.search.substr(1));
+  const formData = new URLSearchParams(location.search.substr(1));
   const [name,email,message] = [formData.get("name"),formData.get("email"),formData.get("message")]
   document.querySelector("#name").innerText = name;
   document.querySelector("#email").innerText = email;
@@ -51,14 +62,48 @@ const successPage = () => {
   if (name && email) document.querySelector("#date").innerText = new Date();
 
   let countdown = Number(document.querySelector("#countdown").innerText);
-  history.replaceState(null,"",window.location.origin+"/contact/");
+  // history.replaceState(null,"",location.origin+"/contact/");
   let interval = setInterval(()=>{
     countdown--;
     document.querySelector("#countdown").innerText = countdown;
     if (countdown <= 0) {
       clearInterval(interval);
-      window.location = window.location.origin;
+      location = location.origin;
     }
   },1000)
 }
-if (/\/contact\/success/.test(window.location.href)) successPage();
+
+const oops = () => {
+  let countdown = Number(document.querySelector("#countdown").innerText);
+  let interval = setInterval(()=>{
+    countdown--;
+    document.querySelector("#countdown").innerText = countdown;
+    if (countdown <= 0) {
+      clearInterval(interval);
+      history.replaceState(null,"",location.origin);
+      location = location.origin;
+    }
+  },1000)
+}
+
+
+const page = location.pathname.replace("index.html","");
+switch (page) {
+  case "/":
+    homepage()
+    break;
+  case "/contact/":
+    attachSubmissionHandler(document.querySelector("form"));
+    break;
+  case "/contact/success/":
+    successPage();
+    break;
+  case "/contact/error/":
+    history.replaceState(null,"",location.origin+"/contact/");
+    break;
+  case "/404/":
+    oops();
+    break;
+  default:
+    break;
+}

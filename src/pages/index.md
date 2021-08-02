@@ -28,13 +28,3 @@ I'm seeking opportunities, and if your team could use help with any of following
   <a href="https://www.linkedin.com/in/jordanhailey/" target="_blank" rel="noopenner noreferrer">LinkedIn</a> or <a href="https://twitter.com/Halfro_American" target="_blank" rel="noopenner noreferrer">Twitter</a>.
   </p>
 </div>
-<script>
-if (sessionStorage.getItem("contact-form-submitted")) { // TODO: change to localStorage
-  let daysSince = Math.floor((Date.now() - Number(sessionStorage.getItem("contact-form-submitted")))/8.64e7);
-  if (daysSince < 0 || daysSince > 3) localStorage.removeItem("contact-form-submitted")
-  else {
-    document.querySelector("#contact-me").style = "display:none;";
-    document.querySelector("#contact-me-submitted").style = "";
-  }
-}
-</script>

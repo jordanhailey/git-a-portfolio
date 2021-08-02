@@ -19,5 +19,3 @@
     </pre>
   </div>
 </div>
-
-<script src="/contact-form.js"></script>

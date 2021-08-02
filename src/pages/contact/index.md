@@ -26,4 +26,3 @@
     <input class="input btn__submit" type="submit"/>
   </div>
 </form>
-<script src="/contact-form.js"></script>
