@@ -63,8 +63,10 @@
             window.location = window.location.href+"success"
           },10000)
         })
-        .catch((error) =>
-          alert(error))
+        .catch((error) =>{
+          alert(error);
+          window.location = window.location.href+"error";
+        });
     })
   }
   attachSubmissionHandler(document.querySelector("#contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}"));
