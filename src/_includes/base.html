@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title if title else site.title }}</title>
-  <meta name="description" content="{{ description if description else site.description }}">
-  <link rel="stylesheet" href="/style.css">
+  {% include 'partials/head.html' %}
 </head>
 <body class="flex flex-dir-col flex-just-str">
+  <div class="skip-links">
+    <a href="#main-content">Skip to main content</a>
+  </div>
   <div class="page-wrapper grid">
-    {% block header %}
-    {% include 'partials/header.html' %}
-    {% endblock %}
-    {% block main %}
-    <main>
+    <header>
       <div class="content-wrapper">
+        {% block header %}
+        {% include 'partials/header.html' %}
+        {% endblock %}
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <div class="content-wrapper">
+        {% block main %}
         {{content | safe}}
+        {% endblock %}
       </div>
     </main>
-    {% endblock %}
-    {% block footer %}
     <footer>
       <div class="content-wrapper">
-        <span>TODO: FOOTER</span>
+        {% block footer %}
+        {% include 'partials/footer.html' %}
+        {% endblock %}
       </div>
     </footer>
-    {% endblock %}
   </div>
+  {% include 'partials/foot.html' %}
 </body>
 </html>
