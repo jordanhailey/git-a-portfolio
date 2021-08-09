@@ -270,6 +270,7 @@ footer > .content-wrapper
   padding-top: var(--body-level-gutter);
   padding-bottom: var(--body-level-gutter);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   left: 0;
   right: 0;
 }
@@ -493,15 +494,17 @@ pre
 
 main nav[aria-label="mobile navigation"] {
   position: fixed;
-  top: var(--header-height);
+  top: 0;
   opacity: 0;
   left: 0;
   right: 0;
   opacity: 0;
-  padding: var(--content-gutter);
+  padding: var(--header-height) var(--content-gutter) var(--content-gutter);
   transform: translateY(-100%);
-  background: var(--header-background-color);
+  color: var(--font-color-alt);
+  background: var(--font-color-primary);
   backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
   animation: mobile-nav-fade-in ease-in-out backwards;
   transition: 100ms ease-in-out;
 }
