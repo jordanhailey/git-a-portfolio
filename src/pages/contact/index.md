@@ -1,6 +1,6 @@
 # Let's work together
 
-<form id="contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}" class="form flex flex-dir-col" name="contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}">
+<form netlify id="contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}" class="form flex flex-dir-col" name="contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}">
   <label class="form__row input__label">
     <div class="input__label__text">Your Name (required)</div>
     <input class="input" type="text" name="name" placeholder="e.g. Ariel H." required />
