@@ -10,4 +10,4 @@ I have participated in various types of full-time volunteer work that required, 
 I may be born and raised in Portland, Oregon, USA - but the rhythm of my heart seems to beat with South African Kwaito and Amapiano music (thanks to a lovely South African I married 😄). While some may prefer to study/work with lo-fi music, I get into the zone when I code with lively music in the background.
 
 ## I am learning 🇷🇺
-I have been learning Russian for the past two years, и мой русский довольно грубый, но я придерживаюсь его!
+I have been learning Russian for the past two years, <span style="cursor:help;" title="and I speak Russian like a small child, but I have not given up trying to learn!">и я говорю по-русски, как маленький ребенок, но я не бросил попытки учиться!</span>

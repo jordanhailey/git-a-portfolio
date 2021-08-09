@@ -2,20 +2,20 @@
 
 <form id="contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}" class="form flex flex-dir-col" name="contact_form_{% if permalink != '/' %}{{permalink | slug}}{% else %}index{% endif %}">
   <label class="form__row input__label">
-    <div class="input__label__text">Name (required)</div>
-    <input class="input" type="text" name="name" placeholder="Your Name (e.g. Bo Jackson)" required />
+    <div class="input__label__text">Your Name (required)</div>
+    <input class="input" type="text" name="name" placeholder="e.g. Ariel H." required />
   </label>
-  <label class="form__row input__label" aria-label="Email">
-    <div class="input__label__text">Email (required)</div>
-    <input class="input" type="email" name="email" placeholder="Your Email (e.g. name@email.com)" required />
+  <label class="form__row input__label">
+    <div class="input__label__text">Your Email (required)</div>
+    <input class="input" type="email" name="email" placeholder="e.g. ariel@email.com" required />
   </label>
   <label class="form__row input__label form__hp" tabindex="-1" aria-hidden="true">
     <div class="input__label__text">DO NOT CHANGE THIS VALUE</div>
     <input class="input" type="tel" name="tel" placeholder="e.g. +1-555-555-5555" tabindex="-1" value="+1-555-555-5555" required/>
   </label>
   <label class="form__row input__label">
-    <div class="input__label__text">Opportunity (required)</div>
-    <textarea class="input" name="message" placeholder="e.g. I would like to speak with you about a freelancing opportunity with my team..." required></textarea>
+    <div class="input__label__text">A Brief Message to Explain the Opportunity (required)</div>
+    <textarea class="input" name="message" placeholder="e.g. We would like to discuss an opportunity to help us develop a new UI for our app..." required></textarea>
   </label>
   <label style="display: none;" class="form__row input__label">
     <div class="input__label__text">Quick Captcha (required)</div>
