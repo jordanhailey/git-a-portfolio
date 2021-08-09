@@ -107,3 +107,14 @@ switch (page) {
   default:
     break;
 }
+
+const navToggle = document.querySelector("header .nav-toggle");
+const nav = document.querySelector('main nav[aria-label="mobile navigation"]');
+const pageWrapper = document.querySelector('.page-wrapper');
+
+navToggle.addEventListener('click',function(){
+  let active = pageWrapper.classList.contains('mobile-nav-visible');
+  this.setAttribute("aria-expanded",!active);
+  pageWrapper.classList.remove('mobile-nav-visible');
+  if (!active) {pageWrapper.classList.add('mobile-nav-visible');}
+})

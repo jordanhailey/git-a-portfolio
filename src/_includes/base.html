@@ -17,6 +17,16 @@
     </header>
     <main id="main-content" tabindex="-1">
       <div class="content-wrapper">
+        <nav role="navigation" aria-label="mobile navigation" class="flex">
+          <ul class="flex flex-dir-col">
+            {% set links = navigation.main %}
+            {% for link in links %}
+            <li class="flex">
+              <a href="{{link.href}}">{{link.text}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </nav>
         {% block main %}
         {{content | safe}}
         {% endblock %}

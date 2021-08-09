@@ -197,40 +197,40 @@ flex-wrap: wrap;
   color: var(--font-color-alt);
 }
 
-header  nav,
-header  nav > ul
+nav,
+nav > ul
 {
   flex: 1 auto;
 }
 
-header .content-wrapper nav > ul,
-header .content-wrapper nav > ul > li
+.content-wrapper nav > ul,
+.content-wrapper nav > ul > li
 {
   text-transform: uppercase;
   list-style: none;
   padding: 0;
-  margin-left: calc(2 * var(--content-gutter));
+  /* margin-left: calc(2 * var(--content-gutter)); */
 }
 
-header li a
+nav li.header-logo {
+  flex: 1 auto;
+}
+nav li a
 {
   padding: var(--content-gutter);
 }
 
-header a
+nav a
 {
+  color: inherit;
   text-decoration: none;
 }
 
-.content-wrapper .header-logo {
-  padding: 0;
-}
+header .nav-toggle {display: none;}
 
-.header-logo > * {
-  padding: var(--content-gutter);
-}
 
-.page-wrapper > main
+.page-wrapper > main,
+.page-wrapper > aside
 {
   grid-area: main;
   scroll-margin-top: var(--header-height);
@@ -489,4 +489,65 @@ pre
 
 .skip-links:focus-within {
   transform: translateX(0);
+}
+
+main nav[aria-label="mobile navigation"] {
+  position: fixed;
+  top: var(--header-height);
+  opacity: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  padding: var(--content-gutter);
+  transform: translateY(-100%);
+  background: var(--header-background-color);
+  backdrop-filter: blur(16px);
+  animation: mobile-nav-fade-in ease-in-out backwards;
+  transition: 100ms ease-in-out;
+}
+
+main nav[aria-label="mobile navigation"] li a {
+  flex:1;
+}
+
+@keyframes mobile-nav-fade-in {
+  0% {display: none;}
+  1% {display: initial;}
+  2% {opacity: 0;}
+  95% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+#nav-close-icon {
+  display: none;
+}
+
+@media screen and (max-width:800px) {
+  header .nav-toggle {display: block;}
+  header nav ul li:not(.header-logo) {display: none;}
+
+  .page-wrapper.mobile-nav-visible main nav[aria-label="mobile navigation"] {
+    transform: translateY(0);
+    animation-direction: forwards;
+    transition-duration: 600ms;
+    opacity: 1;
+  }
+
+  header button svg g#nav-hamburger-icon {
+    transition: 300ms;
+  }
+  header button svg g#nav-close-icon {
+    transform: scaleY(0);
+    transition: 300ms;
+  }
+  .page-wrapper.mobile-nav-visible header button svg g#nav-hamburger-icon {
+    transform: scaleY(0);
+    transform-origin: center;
+  }
+  .page-wrapper.mobile-nav-visible header button svg g#nav-close-icon {
+    display: block;
+    transform: scaleY(1);
+    transform-origin: center;
+    transition-delay: 150ms;
+  }
 }
