@@ -7,10 +7,14 @@
     "start": "npx eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["eleventy","portfolio"],
+  "keywords": [
+    "eleventy",
+    "portfolio"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1"
+    "@11ty/eleventy": "^0.12.1",
+    "netlify-cli": "^6.0.9"
   }
 }
