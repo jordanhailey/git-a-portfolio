@@ -4,7 +4,8 @@
   "description": "Host your own portfolio from GitHub.",
   "main": "index.js",
   "scripts": {
-    "start": "npx eleventy --serve",
+    "start": "npx eleventy",
+    "netlify": "npx netlify-cli",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
