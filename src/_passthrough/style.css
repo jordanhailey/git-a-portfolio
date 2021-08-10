@@ -497,6 +497,7 @@ pre
 }
 
 main nav[aria-label="mobile navigation"] {
+  display: none;
   position: fixed;
   top: 0;
   opacity: 0;
@@ -532,6 +533,10 @@ main nav[aria-label="mobile navigation"] li a {
 @media screen and (max-width:800px) {
   header .nav-toggle {display: block;}
   header nav ul li:not(.header-logo) {display: none;}
+
+  main nav[aria-label="mobile navigation"] {
+    display: initial;
+  }
 
   .page-wrapper.mobile-nav-visible main nav[aria-label="mobile navigation"] {
     transform: translateY(0);
