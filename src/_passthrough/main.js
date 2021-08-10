@@ -1,5 +1,4 @@
 const homepage = () => {
-  console.log("HOMEPAGE");
   if (sessionStorage.getItem("contact-form-submitted")) { // TODO: change to localStorage
     let daysSince = Math.floor((Date.now() - Number(sessionStorage.getItem("contact-form-submitted")))/8.64e7);
     if (daysSince < 0 || daysSince > 3) localStorage.removeItem("contact-form-submitted")
@@ -50,7 +49,6 @@ function attachSubmissionHandler(form){
         sessionStorage.setItem('contact-form-submitted',Date.now()); // TODO migrate to localStorage when form is tested
         form.style=`--mBottom:${-1 * form.offsetHeight}px;transform-origin:top;animation:fadeOutWrapper 1s ease-in-out forwards`;
         setTimeout(()=>{
-          console.log(location)
           location = location.href+"success?"+new URLSearchParams(formData).toString()
         },1000)
       })
