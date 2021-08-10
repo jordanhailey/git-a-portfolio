@@ -80,19 +80,6 @@ const successPage = () => {
   },1000)
 }
 
-const oops = () => {
-  let countdown = Number(document.querySelector("#countdown").innerText);
-  let interval = setInterval(()=>{
-    countdown--;
-    document.querySelector("#countdown").innerText = countdown;
-    if (countdown <= 0) {
-      clearInterval(interval);
-      history.replaceState(null,"",location.origin);
-      location = location.origin;
-    }
-  },1000)
-}
-
 
 const page = location.pathname.replace("index.html","");
 switch (page) {
@@ -107,9 +94,6 @@ switch (page) {
     break;
   case "/contact/error/":
     history.replaceState(null,"",location.origin+"/contact/");
-    break;
-  case "/404/":
-    oops();
     break;
   default:
     break;
