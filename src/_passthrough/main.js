@@ -9,27 +9,36 @@ const homepage = () => {
     }
   }
 }
-
+function setCaptcha(form){
+  let randNum;
+  const captcha = form.querySelector("input[name='quickcaptcha']");
+  if (randNum == undefined) {
+    randNum = Math.floor(1234 * Math.random());
+    captcha.required = true;
+    captcha.parentNode.style = "";
+    form.querySelector("#quick-captcha").innerText = randNum;
+    captcha.placeholder = `Enter the number: ${randNum}`;
+  }
+  return randNum;
+}
 function attachSubmissionHandler(form){
   let randNum;
+  window.onload = () =>{
+    setTimeout(()=>{
+      if (randNum == undefined) randNum = setCaptcha(form);
+    },10000)
+  }
   form.addEventListener("submit",(e) => {
     e.preventDefault()
     let formData = new FormData(form);
-    const captcha = form.querySelector("input[name='quickcaptcha']");
-    if (!/555-555-5555/.test(formData.get("tel")) || randNum) {
-      if (randNum == undefined) {
-        form.classList.add("rejected");
-        randNum = Math.floor(1234 * Math.random());
-        captcha.required = true;
-        captcha.min = randNum;
-        captcha.max = randNum;
-        captcha.parentNode.style = "";
-        form.querySelector("#quick-captcha").innerText = randNum;
-        captcha.placeholder = `Please enter the number: ${randNum}`;
-        return;
-      } else if (Number(formData.get("quickcaptcha")) !== randNum) {return}
+    if (randNum==undefined) {
+      randNum = setCaptcha(form);
+      return
     }
-    formData.delete("tel");
+    if (Number(formData.get("quickcaptcha")) !== randNum) {
+      alert(`unable to process form entry, please close this popup and enter the number ${randNum} in the Captcha field`)
+      return;
+    }
     formData.append("date",Date.now())
     fetch('/', {
       method: 'POST',
@@ -55,9 +64,10 @@ function attachSubmissionHandler(form){
 
 const successPage = () => {
   const formData = new URLSearchParams(location.search.substr(1));
-  const [name,email,message] = [formData.get("name"),formData.get("email"),formData.get("message")]
+  const [name,email,tel,message] = [formData.get("name"),formData.get("email"),formData.get("tel"),formData.get("message")]
   document.querySelector("#name").innerText = name;
   document.querySelector("#email").innerText = email;
+  document.querySelector("#tel").innerText = tel;
   document.querySelector("#message").innerText = message;
   if (name && email) document.querySelector("#date").innerText = new Date();
 

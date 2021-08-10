@@ -413,11 +413,15 @@ textarea.input
 
 .form__hp {
   /* honeypot field */
-  width: 1px;
+  /* width: 1px;
   height: 1px;
   margin: -1px;
   padding: 0;
-  opacity: 0;
+  opacity: 0; */
+}
+
+.input__label__sub__text {
+  font-size: var(--font-sml);
 }
 
 

@@ -7,7 +7,7 @@
     <p class="font-xxl">Here is your message</p>
       <p class="font-med"><strong>From:</strong></p>
     <pre>
-      <code class="font-sml" id="name"></code> <<code class="font-sml" id="email"></code>>
+      <code class="font-sml" id="name"></code> <<code class="font-sml" id="email"></code>> (tel: <code class="font-sml" id="tel"></code>)
     </pre>
       <p class="font-med"><strong>Sent:</strong></p>
     <pre>

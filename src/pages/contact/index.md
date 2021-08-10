@@ -9,17 +9,17 @@
     <div class="input__label__text">Your Email (required)</div>
     <input class="input" type="email" name="email" placeholder="e.g. ariel@email.com" required />
   </label>
-  <label class="form__row input__label form__hp" tabindex="-1" aria-hidden="true">
-    <div class="input__label__text">DO NOT CHANGE THIS VALUE</div>
-    <input class="input" type="tel" name="tel" placeholder="e.g. +1-555-555-5555" tabindex="-1" value="+1-555-555-5555" required/>
+  <label class="form__row input__label form__hp">
+    <div class="input__label__text">Your Telephone Number (required)</div>
+    <input class="input" type="tel" name="tel" placeholder="e.g. +1-555-555-5555" required/>
   </label>
   <label class="form__row input__label">
     <div class="input__label__text">A Brief Message to Explain the Opportunity (required)</div>
     <textarea class="input" name="message" placeholder="e.g. We would like to discuss an opportunity to help us develop a new UI for our app..." required></textarea>
   </label>
   <label style="display: none;" class="form__row input__label">
-    <div class="input__label__text">Quick Captcha (required)</div>
-    <div class="input__label__sub__text font__sml">Please type in the following number: <div id="quick-captcha"></div></div>
+    <div class="input__label__text">Random Number Captcha (required)</div>
+    <div class="input__label__sub__text font__sml">Please type in the following number: <span id="quick-captcha"></span></div>
     <input class="input" type="number" name="quickcaptcha" placeholder="Please enter the number: 789"></textarea>
   </label>
   <div class="form__submit">
