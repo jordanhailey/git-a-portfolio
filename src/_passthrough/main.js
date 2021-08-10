@@ -45,7 +45,6 @@ function attachSubmissionHandler(form){
       body: new URLSearchParams(formData).toString()
     })
       .then(() => {
-        console.log('Form successfully submitted',{entries:Array.from(formData.entries()).map(v=>v)});
         sessionStorage.setItem('contact-form-submitted',Date.now()); // TODO migrate to localStorage when form is tested
         form.style=`--mBottom:${-1 * form.offsetHeight}px;transform-origin:top;animation:fadeOutWrapper 1s ease-in-out forwards`;
         setTimeout(()=>{
