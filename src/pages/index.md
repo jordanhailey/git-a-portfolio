@@ -14,11 +14,11 @@ I'm seeking opportunities, and if your team could use help with any of following
 - CSS
 - Frameworks like Svelte, 11ty\*, Express, React, Next, and Vue
 - Node and Deno backends
-> \* I built this portfolio site from scratch with 11ty, feel free to [take a look at the source code](https://github.com/jordanhailey/jordanhailey).
+> \* I built this portfolio site from scratch with 11ty, feel free to [take a look at the source code](https://github.com/jordanhailey/git-a-portfolio).
 
 ## Let's work together
 <div id="contact-me">
-<p>Interested in working together? <a href="/contact">Reach out to me via my contact form</a>.</p>
+<p>Interested in working together? Feel free to read a little bit <a href="/about">about me</a> and <a href="/contact">Reach out to me via my contact form</a>.</p>
 <p>I'm looking forward to working with you and giving back to the OSS community!</p>
 </div>
 <div id="contact-me-submitted" style="display:none">
