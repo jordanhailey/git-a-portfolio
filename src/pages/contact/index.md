@@ -10,8 +10,8 @@
     <input class="input" type="email" name="email" placeholder="e.g. ariel@email.com" required />
   </label>
   <label class="form__row input__label form__hp">
-    <div class="input__label__text">Your Telephone Number (required)</div>
-    <input class="input" type="tel" name="tel" placeholder="e.g. +1-555-555-5555" required/>
+    <div class="input__label__text">Your Telephone Number</div>
+    <input class="input" type="tel" name="tel" placeholder="e.g. +1-555-555-5555"/>
   </label>
   <label class="form__row input__label">
     <div class="input__label__text">A Brief Message to Explain the Opportunity (required)</div>
