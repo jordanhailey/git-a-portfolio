@@ -27,13 +27,13 @@
 html
 {
   font-size: 100%;
+  font-family: 'Rosario', sans-serif;
   color: var(--font-color-primary);
 }
 
 body {
   font-weight: 400;
   line-height: 1.75;
-  font-family: sans-serif;
 }
 
 h1, h2, h3, h4, h5 {
@@ -226,7 +226,7 @@ nav a
   text-decoration: none;
 }
 
-header .nav-toggle {display: none;}
+.nav-toggle {display: none;}
 
 
 .page-wrapper > main,
@@ -526,12 +526,7 @@ main nav[aria-label="mobile navigation"] li a {
   100% {opacity: 1;}
 }
 
-#nav-close-icon {
-  display: none;
-}
-
 @media screen and (max-width:800px) {
-  header .nav-toggle {display: block;}
   header nav ul li:not(.header-logo) {display: none;}
 
   main nav[aria-label="mobile navigation"] {
@@ -545,21 +540,37 @@ main nav[aria-label="mobile navigation"] li a {
     opacity: 1;
   }
 
-  header button svg g#nav-hamburger-icon {
-    transition: 300ms;
+  .nav-toggle {
+    display: grid;
+    grid-template-areas: "1fr icon 1fr";
+    place-content: center;
+    color: var(--font-color-alt);
+    background-color: var(--font-color-primary);
+    border-radius: 0.25rem;
+    padding: 1em 1.5em;
+    position: relative;
+    top: -0.25rem;
+    left: -0.25rem;
+    box-shadow: 0.125em 0.125em 0 var(--font-color-alt),0.125em 0.125em var(--font-color-primary);
   }
-  header button svg g#nav-close-icon {
-    transform: scaleY(0);
-    transition: 300ms;
+
+  .nav-toggle[aria-expanded="true"] {
+    box-shadow: inset 0 0 0 0.15em var(--font-color-primary), inset 0.25em 0.25em 0 var(--font-color-alt);
   }
-  .page-wrapper.mobile-nav-visible header button svg g#nav-hamburger-icon {
-    transform: scaleY(0);
+  .nav-toggle > * {
+    grid-area: icon;
+    transition: all 150ms ease-in-out;
     transform-origin: center;
   }
-  .page-wrapper.mobile-nav-visible header button svg g#nav-close-icon {
-    display: block;
+
+  .nav-toggle[aria-expanded="false"] > .nav-hamburger-icon,
+  .nav-toggle[aria-expanded="true"] > .nav-close-icon {
     transform: scaleY(1);
-    transform-origin: center;
     transition-delay: 150ms;
+  }
+
+  .nav-toggle[aria-expanded="false"] > .nav-close-icon,
+  .nav-toggle[aria-expanded="true"] > .nav-hamburger-icon {
+    transform: scaleY(0);
   }
 }
